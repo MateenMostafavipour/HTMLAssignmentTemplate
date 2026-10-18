@@ -1,0 +1,117 @@
+/* Side Quest Coffee Co. — shared styles for index.html and games.html */
+
+:root {
+  --bg: #efe4cf;          /* page background, used on every page */
+  --card: #fbf6ec;        /* panels sitting on the background */
+  --green: #2e4b3c;       /* header, footer, headings */
+  --green-dark: #213a2e;
+  --brass: #c9952e;       /* buttons and accents */
+  --wood: #6b4429;
+  --red: #a9322a;         /* "Closed" */
+  --ink: #2a1c12;
+  --muted: #65503d;
+  --line: #dccbad;
+  --head: "Young Serif", Georgia, serif;
+  --body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: var(--head); font-weight: 400; line-height: 1.15; margin: 0 0 .5rem; color: var(--green); }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0 0 .8rem; }
+a { color: var(--green); font-weight: 700; }
+a:focus-visible { outline: 3px solid var(--brass); outline-offset: 2px; }
+
+.wrap { width: min(100% - 2.5rem, 1080px); margin-inline: auto; }
+
+/* Header */
+.site-header { background: var(--green); color: var(--card); }
+.site-header .wrap {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .75rem 2rem; padding-block: 1rem;
+}
+.logo { font-family: var(--head); font-size: 1.4rem; color: var(--card); text-decoration: none; font-weight: 400; }
+.site-header nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.site-header nav a { color: var(--card); text-decoration: none; font-weight: 500; padding-bottom: .2rem; border-bottom: 2px solid transparent; }
+.site-header nav a:hover, .site-header nav a[aria-current="page"] { border-bottom-color: var(--brass); }
+
+/* Intro */
+.intro { padding-block: 3.5rem 2.5rem; }
+.intro p { font-size: 1.2rem; max-width: 40rem; color: var(--muted); }
+.btn {
+  display: inline-block; margin-top: .75rem; margin-right: .5rem;
+  background: var(--brass); color: var(--ink);
+  padding: .7rem 1.4rem; border-radius: 999px; text-decoration: none;
+}
+.btn:hover { background: #dba940; }
+.btn-outline { background: transparent; border: 2px solid var(--green); color: var(--green); }
+.btn-outline:hover { background: var(--card); }
+
+/* Panels */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.panel {
+  background: var(--card);
+  border-radius: 14px;
+  border-top: 5px solid var(--green);
+  padding: 1.6rem 1.75rem;
+  box-shadow: 0 4px 14px rgba(42, 28, 18, .07);
+}
+.panel.accent { border-top-color: var(--brass); }
+
+/* Hours */
+.hours { width: 100%; border-collapse: collapse; }
+.hours th, .hours td { text-align: left; padding: .45rem 0; border-bottom: 1px dashed var(--line); }
+.hours td { text-align: right; }
+.hours tr:last-child th, .hours tr:last-child td { border-bottom: 0; }
+.hours .closed th, .hours .closed td { color: var(--red); font-weight: 700; }
+
+/* Contact */
+.contact { list-style: none; margin: 0 0 1rem; padding: 0; }
+.contact li { padding: .35rem 0; }
+.contact span { display: inline-block; width: 4.5rem; color: var(--muted); }
+.note { font-size: .95rem; color: var(--muted); margin: 0; }
+
+/* Menu */
+.menu { list-style: none; margin: 0; padding: 0; }
+.menu li { display: flex; gap: .5rem; align-items: baseline; padding: .3rem 0; }
+.menu .dots { flex: 1; border-bottom: 2px dotted var(--line); }
+.menu .price { font-weight: 700; color: var(--green); }
+
+/* Events */
+.events { list-style: none; margin: 0; padding: 0; }
+.events li { padding: .6rem 0; border-bottom: 1px dashed var(--line); }
+.events li:last-child { border-bottom: 0; }
+.events strong { display: block; color: var(--green); font-size: 1.05rem; }
+.events .when { color: var(--wood); font-weight: 700; font-size: .95rem; }
+
+/* Game table */
+.table-wrap { overflow-x: auto; }
+.games { width: 100%; border-collapse: collapse; min-width: 30rem; }
+.games caption { text-align: left; font-family: var(--head); font-size: 1.8rem; color: var(--green); padding-bottom: .75rem; }
+.games th, .games td { text-align: left; padding: .8rem 1rem; }
+.games thead th { background: var(--green); color: var(--card); font-weight: 700; }
+.games thead th:first-child { border-radius: 8px 0 0 0; }
+.games thead th:last-child { border-radius: 0 8px 0 0; }
+.games tbody tr:nth-child(even) { background: #f3ead8; }
+.games tbody th { font-family: var(--head); font-weight: 400; color: var(--green); font-size: 1.1rem; }
+.games tbody tr { border-bottom: 1px solid var(--line); }
+
+/* Footer */
+.site-footer { background: var(--green); color: var(--card); margin-top: 2.5rem; }
+.site-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 2rem; padding-block: 1.5rem; font-size: .95rem; }
+.site-footer a { color: var(--card); }
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: 1fr; }
+  .intro { padding-block: 2.5rem 1.5rem; }
+}
